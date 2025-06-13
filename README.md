@@ -1,6 +1,53 @@
-# Getting Started with Create React App
+# React Remote - Todo App with JSON Server
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+이 프로젝트는 Create React App으로 생성된 Todo 애플리케이션입니다. JSON Server를 백엔드로 사용하며, GitHub Actions를 통해 자동 배포됩니다.
+
+## 🚀 GitHub Actions 배포
+
+이 프로젝트는 두 가지 자동 배포 워크플로우를 제공합니다:
+
+### 1. GitHub Pages 배포 (Frontend)
+- **워크플로우**: `.github/workflows/deploy-gh-pages.yml`
+- **트리거**: `main` 또는 `master` 브랜치에 push
+- **배포 대상**: React 앱을 GitHub Pages에 정적 사이트로 배포
+- **URL**: `https://[YOUR_GITHUB_USERNAME].github.io/react-remote`
+
+### 2. JSON Server 배포 (Backend)
+- **워크플로우**: `.github/workflows/deploy-json-server.yml`
+- **트리거**: `main` 또는 `master` 브랜치에 push
+- **배포 대상**: JSON Server API를 Vercel에 배포
+- **API Endpoint**: `https://your-vercel-app.vercel.app/api/todos`
+
+## 📋 설정 방법
+
+### GitHub Pages 설정
+1. GitHub 저장소의 Settings → Pages로 이동
+2. Source를 "GitHub Actions"로 설정
+3. `package.json`에서 `homepage` URL을 본인의 GitHub 사용자명으로 수정:
+   ```json
+   "homepage": "https://[YOUR_GITHUB_USERNAME].github.io/react-remote"
+   ```
+
+### JSON Server 배포 설정 (Vercel)
+1. [Vercel](https://vercel.com)에 계정 생성
+2. GitHub 저장소와 연결
+3. `vercel.json` 설정 파일이 이미 포함되어 있음
+4. Vercel에서 자동으로 `server.js`를 감지하여 배포
+
+## 🛠 로컬 개발
+
+### Frontend 실행
+```bash
+npm start
+```
+- React 앱이 [http://localhost:3000](http://localhost:3000)에서 실행됩니다.
+
+### Backend (JSON Server) 실행
+```bash
+npm run database
+```
+- JSON Server가 [http://localhost:5000](http://localhost:5000)에서 실행됩니다.
+- API 엔드포인트: `http://localhost:5000/todos`
 
 ## Available Scripts
 

@@ -1,0 +1,59 @@
+name: Deploy JSON Server
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  deploy-json-server:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        
+    - name: Prepare server files
+      run: |
+        mkdir -p deploy
+        cp server.js deploy/
+        cp database.json deploy/
+        cp server-package.json deploy/package.json
+        cp vercel.json deploy/
+        
+    - name: Install server dependencies
+      run: |
+        cd deploy
+        npm install
+        
+    - name: Check for Vercel token
+      id: check-vercel
+      run: |
+        if [ -n "${{ secrets.VERCEL_TOKEN }}" ]; then
+          echo "has-token=true" >> $GITHUB_OUTPUT
+        else
+          echo "has-token=false" >> $GITHUB_OUTPUT
+        fi
+        
+    - name: Deploy to Vercel
+      if: steps.check-vercel.outputs.has-token == 'true'
+      uses: amondnet/vercel-action@v25
+      with:
+        vercel-token: ${{ secrets.VERCEL_TOKEN }}
+        working-directory: ./deploy
+        
+    - name: Deploy notification
+      run: |
+        echo "✅ JSON Server deployment workflow completed"
+        echo "📁 Server files prepared in ./deploy directory"
+        echo "🔗 Configure your hosting platform secrets to enable automatic deployment"
+        echo ""
+        echo "Supported platforms:"
+        echo "- Vercel: Set VERCEL_TOKEN secret"
+        echo "- Railway: Set RAILWAY_TOKEN and RAILWAY_SERVICE_ID secrets"
+        echo "- Manual: Use ./deploy directory contents"

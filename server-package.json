@@ -1,0 +1,16 @@
+{
+  "name": "react-remote-json-server",
+  "version": "1.0.0",
+  "description": "JSON Server for React Remote project",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "json-server --watch database.json --port 5000"
+  },
+  "dependencies": {
+    "json-server": "^1.0.0-beta.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
