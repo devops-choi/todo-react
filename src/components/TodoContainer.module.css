@@ -111,33 +111,33 @@
   .container {
     padding: 1rem;
   }
-  
+
   .title {
     font-size: 2rem;
   }
-  
+
   .subtitle {
     font-size: 1rem;
   }
-  
+
   .stats {
     flex-direction: column;
     gap: 1rem;
   }
-  
+
   .statItem {
     padding: 1rem;
   }
-  
+
   .statNumber {
     font-size: 1.5rem;
   }
-  
+
   .filters {
     flex-wrap: wrap;
     gap: 0.5rem;
   }
-  
+
   .filterButton {
     flex: 1;
     min-width: 80px;

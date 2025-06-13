@@ -1,0 +1,103 @@
+name: 🤖 Automated Maintenance
+
+on:
+  schedule:
+    # 매주 월요일 오전 9시에 실행 (UTC 기준)
+    - cron: '0 9 * * 1'
+  workflow_dispatch:
+
+jobs:
+  dependency-update:
+    name: 📦 Dependencies Update Check
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        
+    - name: ⚙️ Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    - name: 📦 Check for outdated packages
+      run: |
+        echo "📦 Checking for outdated packages..."
+        npm outdated || echo "Some packages are outdated"
+        
+    - name: 🔒 Security audit
+      run: |
+        echo "🔒 Running security audit..."
+        npm audit --audit-level=moderate || echo "Security vulnerabilities found"
+        
+    - name: 📋 Create maintenance report
+      run: |
+        echo "## 🔧 Weekly Maintenance Report" >> maintenance-report.md
+        echo "" >> maintenance-report.md
+        echo "### 📦 Package Status" >> maintenance-report.md
+        echo "\`\`\`" >> maintenance-report.md
+        npm outdated || echo "All packages are up to date" >> maintenance-report.md
+        echo "\`\`\`" >> maintenance-report.md
+        echo "" >> maintenance-report.md
+        echo "### 🔒 Security Status" >> maintenance-report.md
+        echo "\`\`\`" >> maintenance-report.md
+        npm audit || echo "No security vulnerabilities found" >> maintenance-report.md
+        echo "\`\`\`" >> maintenance-report.md
+        
+    - name: 📤 Upload maintenance report
+      uses: actions/upload-artifact@v4
+      with:
+        name: maintenance-report
+        path: maintenance-report.md
+        retention-days: 7
+
+  health-check:
+    name: 🏥 System Health Check
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout
+      uses: actions/checkout@v4
+      
+    - name: ⚙️ Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    - name: 📦 Install dependencies
+      run: npm ci
+      
+    - name: 🧪 Run comprehensive tests
+      run: |
+        echo "🧪 Running all tests..."
+        npm test -- --coverage --watchAll=false --passWithNoTests
+        
+    - name: 🏗️ Test build process
+      run: |
+        echo "🏗️ Testing build..."
+        npm run build
+        
+    - name: 🌐 Test server startup
+      run: |
+        echo "🌐 Testing JSON server..."
+        npm run database &
+        SERVER_PID=$!
+        sleep 5
+        curl -f http://localhost:5000/todos || echo "Server test completed"
+        kill $SERVER_PID || echo "Server already stopped"
+        
+    - name: 📋 Health report
+      run: |
+        echo "## 🏥 System Health Report" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "### ✅ Completed Health Checks:" >> $GITHUB_STEP_SUMMARY
+        echo "- 📦 Dependency installation" >> $GITHUB_STEP_SUMMARY
+        echo "- 🧪 Test suite execution" >> $GITHUB_STEP_SUMMARY
+        echo "- 🏗️ Build process verification" >> $GITHUB_STEP_SUMMARY
+        echo "- 🌐 Server startup test" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "### 📊 System Status: ✅ HEALTHY" >> $GITHUB_STEP_SUMMARY

@@ -1,22 +1,74 @@
-# 🚀 GitHub Actions 배포 설정 완료!
+# 🚀 GitHub Actions CI/CD 파이프라인 완료!
 
-이 프로젝트에 GitHub Actions를 사용한 자동 배포 시스템이 성공적으로 구성되었습니다.
+이 프로젝트에 완전한 CI/CD (Continuous Integration/Continuous Deployment) 시스템이 구성되었습니다.
 
-## 📁 생성된 파일들
+## 📁 워크플로우 파일들
 
-### GitHub Actions 워크플로우
-- `.github/workflows/deploy-gh-pages.yml` - React 앱을 GitHub Pages에 배포
-- `.github/workflows/deploy-json-server.yml` - JSON Server를 클라우드 플랫폼에 배포
+### 🎯 주요 워크플로우
+- `.github/workflows/deploy-gh-pages.yml` - **메인 CI/CD 파이프라인**
+  - 🧪 테스트 실행 (모든 푸시/PR)
+  - 🏗️ 빌드 생성 (main 브랜치)
+  - 🚀 GitHub Pages 배포 (main 브랜치)
 
-### 배포 설정 파일들
-- `server.js` - JSON Server 진입점
-- `server-package.json` - JSON Server 전용 package.json
-- `vercel.json` - Vercel 배포 설정
-- `Procfile` - Heroku 배포 설정
+- `.github/workflows/deploy-json-server.yml` - **백엔드 API 배포**
+  - 🛠️ JSON Server 배포 (Vercel, Railway 지원)
+  - 🧪 서버 시작 테스트
+  - 📦 의존성 설치 및 검증
 
-### 문서
-- `DEPLOYMENT.md` - 상세한 배포 설정 가이드
-- `setup-deployment.bat` - Windows 배포 설정 스크립트
+### 🔍 품질 관리 워크플로우
+- `.github/workflows/pr-check.yml` - **Pull Request 검증**
+  - 🔍 코드 린팅 (ESLint)
+  - 🎨 코드 포맷팅 (Prettier)
+  - 🧪 테스트 커버리지
+  - 🏗️ 빌드 검증
+  - 📊 번들 크기 분석
+  - 🔒 보안 감사
+  - 🔐 의존성 리뷰
+
+- `.github/workflows/maintenance.yml` - **자동 유지보수**
+  - 📦 주간 의존성 업데이트 체크
+  - 🔒 정기 보안 감사
+  - 🏥 시스템 상태 모니터링
+
+
+## 🎯 CI/CD 파이프라인 동작 방식
+
+### 📊 워크플로우 트리거
+
+| 이벤트 | 워크플로우 | 실행 내용 |
+|--------|------------|-----------|
+| 🔀 **Push to main** | `deploy-gh-pages.yml` | 테스트 → 빌드 → 배포 |
+| 🔀 **Push (backend 변경)** | `deploy-json-server.yml` | 서버 테스트 → 배포 |
+| 🔄 **Pull Request** | `pr-check.yml` | 코드 품질 검사 |
+| ⏰ **매주 월요일** | `maintenance.yml` | 의존성 체크, 보안 감사 |
+| 🖱️ **수동 실행** | 모든 워크플로우 | 언제든지 수동 트리거 가능 |
+
+### 🔄 CI/CD 흐름도
+
+```
+📝 코드 작성
+    ↓
+🔄 Pull Request 생성
+    ↓
+🔍 자동 코드 품질 검사 (pr-check.yml)
+    ├─ 🧪 테스트 실행
+    ├─ 🔍 린팅 검사
+    ├─ 🎨 포맷팅 검사
+    ├─ 🏗️ 빌드 테스트
+    ├─ 📊 번들 분석
+    └─ 🔒 보안 감사
+    ↓
+✅ 코드 리뷰 & 승인
+    ↓
+🔄 Main 브랜치에 병합
+    ↓
+🚀 자동 배포 시작 (deploy-gh-pages.yml)
+    ├─ 🧪 테스트 재실행
+    ├─ 🏗️ 프로덕션 빌드
+    └─ 🌐 GitHub Pages 배포
+    ↓
+🎉 배포 완료!
+```
 
 ## 🎯 사용 방법
 

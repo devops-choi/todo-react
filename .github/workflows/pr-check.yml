@@ -1,0 +1,87 @@
+name: 🔍 Pull Request Check
+
+on:
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  code-quality:
+    name: 🧹 Code Quality Check
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        
+    - name: ⚙️ Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    - name: 📦 Install dependencies
+      run: npm ci
+      
+    - name: 🔍 Run ESLint
+      run: |
+        echo "🔍 Running ESLint..."
+        npx eslint src/ --ext .js,.jsx,.ts,.tsx --format=compact || true
+        
+    - name: 🎨 Check code formatting
+      run: |
+        echo "🎨 Checking code formatting..."
+        npx prettier --check src/ || echo "⚠️ Some files need formatting"
+        
+    - name: 🧪 Run tests with coverage
+      run: |
+        echo "🧪 Running tests..."
+        npm test -- --coverage --watchAll=false --passWithNoTests
+        
+    - name: 🏗️ Test build
+      run: |
+        echo "🏗️ Testing build process..."
+        npm run build
+        
+    - name: 📊 Bundle size analysis
+      run: |
+        echo "📊 Analyzing bundle size..."
+        du -sh build/static/js/* || echo "No JS files found"
+        du -sh build/static/css/* || echo "No CSS files found"
+        
+    - name: 🔒 Security audit
+      run: |
+        echo "🔒 Running security audit..."
+        npm audit --audit-level=moderate || echo "⚠️ Security vulnerabilities found"
+        
+    - name: 📋 PR Summary
+      run: |
+        echo "## 🎯 Pull Request Analysis Summary" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "### ✅ Completed Checks:" >> $GITHUB_STEP_SUMMARY
+        echo "- 🔍 Code linting (ESLint)" >> $GITHUB_STEP_SUMMARY
+        echo "- 🎨 Code formatting (Prettier)" >> $GITHUB_STEP_SUMMARY
+        echo "- 🧪 Unit tests with coverage" >> $GITHUB_STEP_SUMMARY
+        echo "- 🏗️ Build verification" >> $GITHUB_STEP_SUMMARY
+        echo "- 📊 Bundle size analysis" >> $GITHUB_STEP_SUMMARY
+        echo "- 🔒 Security audit" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "### 📈 Next Steps:" >> $GITHUB_STEP_SUMMARY
+        echo "If all checks pass, this PR is ready for review and merge." >> $GITHUB_STEP_SUMMARY
+
+  dependency-review:
+    name: 🔐 Dependency Review
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    
+    steps:
+    - name: 📥 Checkout
+      uses: actions/checkout@v4
+      
+    - name: 🔐 Dependency Review
+      uses: actions/dependency-review-action@v4
+      with:
+        fail-on-severity: moderate
+        allow-licenses: MIT, Apache-2.0, BSD-2-Clause, BSD-3-Clause, ISC

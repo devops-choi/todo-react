@@ -71,11 +71,11 @@
     flex-wrap: wrap;
     gap: 0.5rem;
   }
-  
+
   .title {
     font-size: 1rem;
   }
-  
+
   .deleteButton {
     font-size: 0.8rem;
     min-width: 70px;

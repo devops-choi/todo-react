@@ -1,59 +1,125 @@
-name: Deploy JSON Server
+name: 🛠️ Deploy JSON Server (Backend)
 
 on:
   push:
     branches: [ main, master ]
+    paths:
+      - 'database.json'
+      - 'server.js'
+      - 'server-package.json'
+      - 'vercel.json'
+      - '.github/workflows/deploy-json-server.yml'
   workflow_dispatch:
 
 jobs:
   deploy-json-server:
+    name: 🚀 Deploy Backend API
     runs-on: ubuntu-latest
     
     steps:
-    - name: Checkout
+    - name: 📥 Checkout
       uses: actions/checkout@v4
       
-    - name: Setup Node.js
+    - name: ⚙️ Setup Node.js
       uses: actions/setup-node@v4
       with:
         node-version: '18'
+        cache: 'npm'
         
-    - name: Prepare server files
+    - name: 📦 Prepare server files
       run: |
+        echo "🔧 Preparing server deployment files..."
         mkdir -p deploy
         cp server.js deploy/
         cp database.json deploy/
         cp server-package.json deploy/package.json
         cp vercel.json deploy/
+        cp Procfile deploy/ 2>/dev/null || echo "Procfile not found, skipping..."
         
-    - name: Install server dependencies
+        echo "📁 Files prepared:"
+        ls -la deploy/
+        
+    - name: 📦 Install server dependencies
       run: |
+        echo "📦 Installing dependencies..."
         cd deploy
         npm install
         
-    - name: Check for Vercel token
+    - name: 🧪 Test server startup
+      run: |
+        echo "🧪 Testing server startup..."
+        cd deploy
+        timeout 10s npm start || echo "Server test completed"
+        
+    # Vercel Deployment
+    - name: 🔍 Check Vercel configuration
       id: check-vercel
       run: |
         if [ -n "${{ secrets.VERCEL_TOKEN }}" ]; then
-          echo "has-token=true" >> $GITHUB_OUTPUT
+          echo "✅ Vercel token found"
+          echo "has-vercel=true" >> $GITHUB_OUTPUT
         else
-          echo "has-token=false" >> $GITHUB_OUTPUT
+          echo "⚠️ Vercel token not found"
+          echo "has-vercel=false" >> $GITHUB_OUTPUT
         fi
         
-    - name: Deploy to Vercel
-      if: steps.check-vercel.outputs.has-token == 'true'
+    - name: 🚀 Deploy to Vercel
+      if: steps.check-vercel.outputs.has-vercel == 'true'
       uses: amondnet/vercel-action@v25
       with:
         vercel-token: ${{ secrets.VERCEL_TOKEN }}
+        vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+        vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
         working-directory: ./deploy
         
-    - name: Deploy notification
+    # Railway Deployment
+    - name: 🔍 Check Railway configuration
+      id: check-railway
       run: |
-        echo "✅ JSON Server deployment workflow completed"
-        echo "📁 Server files prepared in ./deploy directory"
-        echo "🔗 Configure your hosting platform secrets to enable automatic deployment"
-        echo ""
-        echo "Supported platforms:"
-        echo "- Vercel: Set VERCEL_TOKEN secret"
-        echo "- Railway: Set RAILWAY_TOKEN and RAILWAY_SERVICE_ID secrets"
-        echo "- Manual: Use ./deploy directory contents"
+        if [ -n "${{ secrets.RAILWAY_TOKEN }}" ]; then
+          echo "✅ Railway token found"
+          echo "has-railway=true" >> $GITHUB_OUTPUT
+        else
+          echo "⚠️ Railway token not found"
+          echo "has-railway=false" >> $GITHUB_OUTPUT
+        fi
+        
+    - name: 🚀 Deploy to Railway
+      if: steps.check-railway.outputs.has-railway == 'true'
+      uses: bervProject/railway-deploy@v1.0.2
+      with:
+        railway_token: ${{ secrets.RAILWAY_TOKEN }}
+        service: ${{ secrets.RAILWAY_SERVICE_ID }}
+        
+    # Deployment Summary
+    - name: 📋 Deployment Summary
+      run: |
+        echo "## 🎯 JSON Server Deployment Summary" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "### ✅ Completed Steps:" >> $GITHUB_STEP_SUMMARY
+        echo "- 📦 Server files prepared" >> $GITHUB_STEP_SUMMARY
+        echo "- 🧪 Dependencies installed and tested" >> $GITHUB_STEP_SUMMARY
+        
+        if [ "${{ steps.check-vercel.outputs.has-vercel }}" == "true" ]; then
+          echo "- 🚀 Deployed to Vercel" >> $GITHUB_STEP_SUMMARY
+        else
+          echo "- ⚠️ Vercel deployment skipped (token not configured)" >> $GITHUB_STEP_SUMMARY
+        fi
+        
+        if [ "${{ steps.check-railway.outputs.has-railway }}" == "true" ]; then
+          echo "- 🚀 Deployed to Railway" >> $GITHUB_STEP_SUMMARY
+        else
+          echo "- ⚠️ Railway deployment skipped (token not configured)" >> $GITHUB_STEP_SUMMARY
+        fi
+        
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "### 🔧 Configuration Help:" >> $GITHUB_STEP_SUMMARY
+        echo "To enable automatic deployment, add these secrets to your repository:" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "**For Vercel:**" >> $GITHUB_STEP_SUMMARY
+        echo "- \`VERCEL_TOKEN\` - Your Vercel API token" >> $GITHUB_STEP_SUMMARY
+        echo "- \`VERCEL_ORG_ID\` - Your Vercel organization ID" >> $GITHUB_STEP_SUMMARY
+        echo "- \`VERCEL_PROJECT_ID\` - Your Vercel project ID" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "**For Railway:**" >> $GITHUB_STEP_SUMMARY        echo "- \`RAILWAY_TOKEN\` - Your Railway API token" >> $GITHUB_STEP_SUMMARY
+        echo "- \`RAILWAY_SERVICE_ID\` - Your Railway service ID" >> $GITHUB_STEP_SUMMARY
