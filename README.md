@@ -1,8 +1,12 @@
 # 📚 React Remote - Todo Application System
 
-> **Complete Full-Stack Todo Application with React Frontend and JSON Server Backend**
+> **Complete Full-Stack Todo Application with React Frontend and JSON Server Backend**  
+> **+ 20챕터 완전 교육 과정 포함 🎓**
 
 이 프로젝트는 Create React App과 JSON Server를 활용한 완전한 Todo 애플리케이션 시스템입니다. 자동화된 CI/CD 파이프라인과 함께 GitHub Pages와 Vercel을 통한 배포 시스템을 제공합니다.
+
+**🚀 특별 제공: [20챕터 완전 학습 가이드](./docs/chapters/README.md)**  
+웹 개발 초보자도 HTML, CSS, JavaScript, React를 완전히 마스터할 수 있는 체계적인 교육 과정을 제공합니다.
 
 ---
 
@@ -607,6 +611,133 @@ npm install -g react-devtools
 
 ---
 
+## 📚 교육 자료 - 20챕터 완전 학습 가이드
+
+> **HTML, CSS, JavaScript, React 초보자를 위한 완전한 학습 과정**
+
+이 프로젝트는 단순한 Todo 앱이 아닙니다. **체계적인 20챕터 교육 과정**을 통해 웹 개발 초보자도 완전히 이해할 수 있도록 설계되었습니다.
+
+### 🎯 **교육 과정 특징**
+
+- **단계별 학습**: HTML → CSS → JavaScript → React 순차 진행
+- **실전 중심**: 이론과 실습을 결합한 프로젝트 기반 학습
+- **한국어 지원**: 모든 내용이 한국어로 작성된 친화적 교육 자료
+- **완전 무료**: 오픈소스 기반의 무료 교육 컨텐츠
+
+### 📖 **학습 과정 구성**
+
+```mermaid
+flowchart LR
+    subgraph Part1["🌟 Part 1: 기초"]
+        A[HTML 기초] --> B[CSS 스타일링]
+        B --> C[JavaScript ES6+]
+        C --> D[React 입문]
+    end
+    
+    subgraph Part2["🏗️ Part 2: 구조"]
+        E[프로젝트 설정] --> F[진입점 분석]
+        F --> G[앱 구조] --> H[컴포넌트 설계]
+    end
+    
+    subgraph Part3["🧩 Part 3: 구현"]
+        I[컨테이너] --> J[입력 컴포넌트]
+        J --> K[목록 컴포넌트] --> L[아이템 컴포넌트]
+    end
+    
+    subgraph Part4["🔧 Part 4: API"]
+        M[서비스 레이어] --> N[CRUD 생성/읽기]
+        N --> O[CRUD 수정/삭제] --> P[백엔드 서버]
+    end
+    
+    subgraph Part5["🧪 Part 5: 고급"]
+        Q[테스팅] --> R[GitHub 배포]
+        R --> S[Vercel 배포] --> T[성능 최적화]
+    end
+
+    Part1 --> Part2
+    Part2 --> Part3
+    Part3 --> Part4
+    Part4 --> Part5
+```
+
+### 📋 **20챕터 목차**
+
+| 파트 | 챕터 | 주제 | 난이도 |
+|------|------|------|--------|
+| **Part 1** | 1-4 | 웹 개발 기초 (HTML, CSS, JS, React) | ⭐ 기초 |
+| **Part 2** | 5-8 | 프로젝트 설정과 구조 분석 | ⭐⭐ 초급 |
+| **Part 3** | 9-12 | 핵심 컴포넌트 구현 | ⭐⭐⭐ 중급 |
+| **Part 4** | 13-16 | 서비스 레이어와 API 통신 | ⭐⭐⭐⭐ 고급 |
+| **Part 5** | 17-20 | 테스팅, 배포, 최적화 | ⭐⭐⭐⭐⭐ 전문가 |
+
+### 🚀 **학습 시작하기**
+
+#### 📖 **완전한 학습 가이드**
+**➡️ [20챕터 완전 학습 가이드](./docs/chapters/README.md)**
+
+#### 📝 **종합 평가 시험**
+**➡️ [5개 시험 문제 모음](./docs/exams/README.md)** 
+- 학습 완료 후 성취도 평가
+- 난이도별 단계적 시험 제공
+- 실무 중심 문제 구성
+
+#### 🎯 **빠른 시작 (경험 수준별)**
+
+```bash
+# 1. 완전 초보자 (추천 학습 기간: 8-12주)
+# 챕터 1부터 순서대로 학습
+docs/chapters/chapter-01-html-basics.md
+
+# 2. JavaScript 경험자 (추천 학습 기간: 4-6주)  
+# React부터 시작
+docs/chapters/chapter-04-react-intro.md
+
+# 3. React 경험자 (추천 학습 기간: 2-3주)
+# 프로젝트 구조부터 시작
+docs/chapters/chapter-05-package-json.md
+
+# 4. 배포만 관심 있는 경우 (1주)
+# 배포 관련 챕터만 학습
+docs/chapters/chapter-18-build-deployment.md
+```
+
+### 💡 **학습 성과**
+
+이 과정을 완료하면 다음을 할 수 있게 됩니다:
+
+- ✅ **프론트엔드 개발**: HTML, CSS, JavaScript, React 완전 이해
+- ✅ **풀스택 개발**: API 서버 구축과 프론트엔드 연동
+- ✅ **DevOps**: GitHub Actions를 통한 자동 배포 시스템
+- ✅ **최적화**: 성능 튜닝과 사용자 경험 개선
+- ✅ **실무 준비**: 취업에 필요한 포트폴리오 프로젝트
+
+---
+
+## ☁️ 클라우드 운영 전문가 취업 가이드
+
+이 프로젝트를 바탕으로 클라우드 운영 전문가로 성장하기 위한 실무 중심 가이드를 제공합니다.
+
+### 🎯 **[📋 클라우드 전문가 가이드 모음](docs/CLOUD_EXPERT_GUIDE.md)**
+
+**제공되는 전문 가이드**:
+- **🌐 [기술 스택 분석](docs/CLOUD_TECH_STACK.md)**: 현재 프로젝트 → 클라우드 전문가 기술 로드맵
+- **🚀 [진화 인사이트](docs/CLOUD_INSIGHTS.md)**: 소규모 프로젝트 → 엔터프라이즈급 아키텍처
+- **🌟 [클라우드 전문가 가이드](docs/CLOUD_EXPERT_GUIDE.md)**: 최고 수준 전문가 역할과 커리어 패스
+
+**핵심 가치**:
+- 현재 Todo 프로젝트를 클라우드 운영 관점에서 분석
+- 단계별 기술 확장 로드맵 제시
+- 실무 프로젝트 예시와 취업 전략
+- 글로벌 시장 분석과 연봉 정보
+
+**대상 독자**:
+- 클라우드 운영 전문가 지망생
+- DevOps 엔지니어 지향 개발자
+- 시스템 관리자에서 클라우드 전문가로 전환 희망자
+- 기술 리더십을 목표로 하는 시니어 엔지니어
+
+---
+
 ## 📖 추가 학습 자료
 
 ### 공식 문서
@@ -623,13 +754,15 @@ npm install -g react-devtools
 
 ```mermaid
 flowchart TD
-    A[JavaScript 기초] --> B[React 기초]
-    B --> C[React Hooks]
-    C --> D[State Management]
-    D --> E[API 통신]
-    E --> F[테스팅]
-    F --> G[배포 자동화]
-    G --> H[성능 최적화]
+    A[📚 20챕터 교육과정] --> B[JavaScript 기초]
+    B --> C[React 기초]
+    C --> D[React Hooks]
+    D --> E[State Management]
+    E --> F[API 통신]
+    F --> G[테스팅]
+    G --> H[배포 자동화]
+    H --> I[성능 최적화]
+    I --> J[🎉 취업 준비 완료]
 ```
 
 ---
@@ -664,6 +797,27 @@ feat(todo): 할일 필터링 기능 추가
 
 Closes #123
 ```
+
+---
+
+## 📝 시험 문제 모음
+
+교육 과정을 완료한 후 학습 성취도를 확인할 수 있는 종합 평가 시험을 제공합니다.
+
+### 🎯 **[📋 시험 문제 모음 보기](docs/exams/README.md)**
+
+**제공되는 시험 목록**:
+- **시험 1**: 웹 개발 기초 (HTML, CSS, JavaScript, React 기초)
+- **시험 2**: 프로젝트 구조와 설정 (package.json, 진입점)
+- **시험 3**: React 컴포넌트와 상태 관리 (Hook, 이벤트 처리)
+- **시험 4**: 서비스 레이어와 CRUD 연산 (API, 백엔드)
+- **시험 5**: 테스팅, 배포, 성능 최적화 (Jest, CI/CD)
+
+**시험 특징**:
+- 다양한 문제 유형: 객관식, 주관식, 빈칸 채우기, 서술형, 코딩 문제
+- 실무 중심의 문제 구성
+- 난이도별 단계적 학습 평가
+- 상세한 정답 및 해설 제공
 
 ---
 
