@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import TodoAPI from '../services/todoService';
 import TodoList from './TodoList';
 import TodoInput from './TodoInput';
@@ -47,7 +47,9 @@ function TodoContainer() {
   const activeCount = totalCount - completedCount;
 
   useEffect(() => {
-    handleReloadTodos();
+    handleReloadTodos().catch(error => {
+      console.error('Failed to load todos:', error);
+    });
     return () => {};
   }, []);
   return (
@@ -72,22 +74,25 @@ function TodoContainer() {
         </div>
       </div>
 
-      <div className={styles.filters}>
+      <div className={styles.filters} role="group" aria-label="할 일 필터">
         <button
           className={`${styles.filterButton} ${filter === 'all' ? styles.active : ''}`}
           onClick={() => setFilter('all')}
+          aria-pressed={filter === 'all'}
         >
           전체
         </button>
         <button
           className={`${styles.filterButton} ${filter === 'active' ? styles.active : ''}`}
           onClick={() => setFilter('active')}
+          aria-pressed={filter === 'active'}
         >
           진행중
         </button>
         <button
           className={`${styles.filterButton} ${filter === 'completed' ? styles.active : ''}`}
           onClick={() => setFilter('completed')}
+          aria-pressed={filter === 'completed'}
         >
           완료
         </button>

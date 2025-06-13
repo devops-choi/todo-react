@@ -83,12 +83,12 @@ jobs:
           echo "⚠️ Railway token not found"
           echo "has-railway=false" >> $GITHUB_OUTPUT
         fi
-        
-    - name: 🚀 Deploy to Railway
+          - name: 🚀 Deploy to Railway
       if: steps.check-railway.outputs.has-railway == 'true'
-      uses: bervProject/railway-deploy@v1.0.2
+      uses: bervProject/railway-deploy@main
+      env:
+        RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
       with:
-        railway_token: ${{ secrets.RAILWAY_TOKEN }}
         service: ${{ secrets.RAILWAY_SERVICE_ID }}
         
     # Deployment Summary

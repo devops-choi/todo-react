@@ -66,6 +66,26 @@ You may also see any lint errors in the console.
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
+#### 간소화된 3단계 테스트
+
+이 프로젝트는 간소화된 3단계 동기 테스트 시스템을 제공합니다:
+
+**테스트 스크립트:**
+- `npm run test:sync` - 모든 테스트를 순차적으로 실행
+- `npm run test:unit` - Stage 1: Unit Tests (컴포넌트 및 서비스)
+- `npm run test:integration` - Stage 2: Integration Tests (통합 및 접근성)
+- `npm run test:performance` - Stage 3: Performance Tests (성능 테스트)
+- `npm run test:coverage` - 코드 커버리지와 함께 테스트 실행
+
+**배치 스크립트 (Windows):**
+- `bin\run-simplified-tests.bat` - 모든 테스트 자동 실행
+- `bin\run-stage-tests.bat` - 단계별 테스트 선택 실행
+
+**테스트 단계:**
+1. **Stage 1: Unit Tests** - 기본 컴포넌트 및 서비스 단위 테스트
+2. **Stage 2: Integration Tests** - 앱 통합 테스트 및 접근성 테스트
+3. **Stage 3: Performance Tests** - 성능 및 렌더링 최적화 테스트
+
 ### `npm run build`
 
 Builds the app for production to the `build` folder.\
