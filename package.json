@@ -16,7 +16,7 @@
   "devDependencies": {
     "gh-pages": "^6.3.0"
   },
-  "homepage": ".",
+  "homepage": "https://devops-chio.github.io/todo-react",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
