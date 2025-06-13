@@ -71,8 +71,7 @@ jobs:
         vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
         vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
         working-directory: ./deploy
-        
-    # Railway Deployment
+          # Railway Deployment
     - name: 🔍 Check Railway configuration
       id: check-railway
       run: |
@@ -83,7 +82,8 @@ jobs:
           echo "⚠️ Railway token not found"
           echo "has-railway=false" >> $GITHUB_OUTPUT
         fi
-          - name: 🚀 Deploy to Railway
+        
+    - name: 🚀 Deploy to Railway
       if: steps.check-railway.outputs.has-railway == 'true'
       uses: bervProject/railway-deploy@main
       env:
@@ -119,7 +119,7 @@ jobs:
         echo "**For Vercel:**" >> $GITHUB_STEP_SUMMARY
         echo "- \`VERCEL_TOKEN\` - Your Vercel API token" >> $GITHUB_STEP_SUMMARY
         echo "- \`VERCEL_ORG_ID\` - Your Vercel organization ID" >> $GITHUB_STEP_SUMMARY
-        echo "- \`VERCEL_PROJECT_ID\` - Your Vercel project ID" >> $GITHUB_STEP_SUMMARY
-        echo "" >> $GITHUB_STEP_SUMMARY
-        echo "**For Railway:**" >> $GITHUB_STEP_SUMMARY        echo "- \`RAILWAY_TOKEN\` - Your Railway API token" >> $GITHUB_STEP_SUMMARY
+        echo "- \`VERCEL_PROJECT_ID\` - Your Vercel project ID" >> $GITHUB_STEP_SUMMARY        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "**For Railway:**" >> $GITHUB_STEP_SUMMARY
+        echo "- \`RAILWAY_TOKEN\` - Your Railway API token" >> $GITHUB_STEP_SUMMARY
         echo "- \`RAILWAY_SERVICE_ID\` - Your Railway service ID" >> $GITHUB_STEP_SUMMARY
