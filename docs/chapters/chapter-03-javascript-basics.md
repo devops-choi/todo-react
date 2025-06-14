@@ -1,5 +1,15 @@
 # Chapter 3: JavaScript 기초와 ES6+ 문법
 
+---
+
+## 📚 네비게이션
+
+- **◀ 이전**: [Chapter 2: CSS 기초와 스타일링](./chapter-02-css-basics.md)
+- **🏠 목차**: [전체 목차](./README.md)
+- **▶ 다음**: [Chapter 4: React 소개와 개발 환경 설정](./chapter-04-react-intro.md)
+
+---
+
 ## 📚 학습 목표
 - JavaScript의 기본 개념과 역할 이해
 - 변수, 데이터 타입, 연산자 학습
@@ -683,3 +693,15 @@ JavaScript 기초를 마스터했다면, 이제 React의 세계로 들어가보�
 5. **모듈 시스템으로 코드 구조화**
 
 다음 챕터에서 React의 핵심 개념들을 학습하겠습니다!
+
+---
+
+## 📚 네비게이션
+
+- **◀ 이전**: [Chapter 2: CSS 기초와 스타일링](./chapter-02-css-basics.md)
+- **🏠 목차**: [전체 목차](./README.md)
+- **▶ 다음**: [Chapter 4: React 소개와 개발 환경 설정](./chapter-04-react-intro.md)
+
+---
+
+**🎉 Chapter 3 완료! 수고하셨습니다! 🚀**

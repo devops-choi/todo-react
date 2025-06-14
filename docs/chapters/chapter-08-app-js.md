@@ -1,5 +1,15 @@
 # Chapter 8: src/App.js - 메인 애플리케이션 컴포넌트
 
+---
+
+## 📚 네비게이션
+
+- **◀ 이전**: [Chapter 7: src/index.js - React 애플리케이션 시작점](./chapter-07-index-js.md)
+- **🏠 목차**: [전체 목차](./README.md)
+- **▶ 다음**: [Chapter 9: TodoContainer.js - 컨테이너 컴포넌트](./chapter-09-todo-container.md)
+
+---
+
 ## 📚 학습 목표
 - App 컴포넌트의 역할과 설계 원칙 이해
 - 최상위 컴포넌트의 책임과 구조 파악
@@ -597,3 +607,15 @@ App의 전체 구조를 이해했다면, 이제 핵심 비즈니스 로직을 �
 5. **확장 가능한 구조로 설계**
 
 다음 챕터에서 Todo 앱의 핵심 로직을 담당하는 컨테이너 컴포넌트를 학습하겠습니다!
+
+---
+
+## 📚 네비게이션
+
+- **◀ 이전**: [Chapter 7: src/index.js - React 애플리케이션 시작점](./chapter-07-index-js.md)
+- **🏠 목차**: [전체 목차](./README.md)
+- **▶ 다음**: [Chapter 9: TodoContainer.js - 컨테이너 컴포넌트](./chapter-09-todo-container.md)
+
+---
+
+**🎉 Chapter 8 완료! 수고하셨습니다! 🚀**

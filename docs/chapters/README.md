@@ -24,25 +24,25 @@
 
 ### 🌟 **파트 1: 웹 개발 기초 (챕터 1-4)**
 
-#### [Chapter 1: HTML 기초와 웹 페이지 구조 이해](./chapters/chapter-01-html-basics.md)
+#### [Chapter 1: HTML 기초와 웹 페이지 구조 이해](./chapter-01-html-basics.md)
 - HTML의 기본 개념과 역할
 - 주요 HTML 태그와 속성
 - 시맨틱 마크업과 접근성
 - React 프로젝트에서의 HTML 역할
 
-#### [Chapter 2: CSS 기초와 스타일링](./chapters/chapter-02-css-basics.md)
+#### [Chapter 2: CSS 기초와 스타일링](./chapter-02-css-basics.md)
 - CSS 선택자와 속성
 - 박스 모델과 레이아웃 시스템
 - Flexbox와 Grid 레이아웃
 - CSS 모듈과 React 스타일링
 
-#### [Chapter 3: JavaScript 기초와 ES6+ 문법](./chapters/chapter-03-javascript-basics.md)
+#### [Chapter 3: JavaScript 기초와 ES6+ 문법](./chapter-03-javascript-basics.md)
 - 변수, 데이터 타입, 연산자
 - 함수와 스코프, 클로저
 - 배열 고차 함수와 비동기 처리
 - ES6+ 최신 문법과 모듈 시스템
 
-#### [Chapter 4: React 소개와 개발 환경 설정](./chapters/chapter-04-react-intro.md)
+#### [Chapter 4: React 소개와 개발 환경 설정](./chapter-04-react-intro.md)
 - React의 기본 개념과 특징
 - JSX 문법과 컴포넌트
 - State와 Props, React Hooks
@@ -52,25 +52,25 @@
 
 ### 🏗️ **파트 2: 프로젝트 설정과 구조 (챕터 5-8)**
 
-#### [Chapter 5: package.json - 프로젝트 설정과 의존성 관리](./chapters/chapter-05-package-json.md)
+#### [Chapter 5: package.json - 프로젝트 설정과 의존성 관리](./chapter-05-package-json.md)
 - package.json 구조와 역할
 - npm scripts와 의존성 관리
 - 버전 관리와 보안 이슈
 - 개발 도구와 빌드 설정
 
-#### [Chapter 6: public/index.html - React 앱의 진입점](./chapters/chapter-06-index-html.md)
+#### [Chapter 6: public/index.html - React 앱의 진입점](./chapter-06-index-html.md)
 - HTML 파일의 역할과 구조
 - SEO 최적화와 메타 태그
 - PWA 설정과 매니페스트
 - 파비콘과 정적 파일 관리
 
-#### [Chapter 7: src/index.js - React 애플리케이션 시작점](./chapters/chapter-07-index-js.md)
+#### [Chapter 7: src/index.js - React 애플리케이션 시작점](./chapter-07-index-js.md)
 - React 앱의 진입점 역할
 - createRoot API와 React 18 기능
 - StrictMode와 성능 측정
 - 전역 설정과 에러 처리
 
-#### [Chapter 8: src/App.js - 메인 애플리케이션 컴포넌트](./chapters/chapter-08-app-js.md)
+#### [Chapter 8: src/App.js - 메인 애플리케이션 컴포넌트](./chapter-08-app-js.md)
 - App 컴포넌트의 설계 원칙
 - 컴포넌트 구성과 데이터 흐름
 - 라우팅과 전역 상태 관리
@@ -80,25 +80,25 @@
 
 ### 🧩 **파트 3: 핵심 컴포넌트 구현 (챕터 9-12)**
 
-#### [Chapter 9: TodoContainer.js - 컨테이너 컴포넌트](./chapters/chapter-09-todo-container.md)
+#### [Chapter 9: TodoContainer.js - 컨테이너 컴포넌트](./chapter-09-todo-container.md)
 - 컨테이너 컴포넌트 패턴
 - 상태 관리와 비즈니스 로직
 - 필터링과 통계 기능 구현
 - 하위 컴포넌트와의 통신
 
-#### [Chapter 10: TodoInput.js - 입력 컴포넌트](./chapters/chapter-10-todo-input.md)
+#### [Chapter 10: TodoInput.js - 입력 컴포넌트](./chapter-10-todo-input.md)
 - 폼 처리와 입력 검증
 - 제어 컴포넌트 vs 비제어 컴포넌트
 - 이벤트 핸들링과 키보드 단축키
 - 접근성과 사용자 경험
 
-#### [Chapter 11: TodoList.js - 목록 컴포넌트](./chapters/chapter-11-todo-list.md)
+#### [Chapter 11: TodoList.js - 목록 컴포넌트](./chapter-11-todo-list.md)
 - 리스트 렌더링과 key prop
 - 가상화와 성능 최적화
 - 조건부 렌더링과 빈 상태
 - 애니메이션과 전환 효과
 
-#### [Chapter 12: TodoItem.js - 개별 아이템 컴포넌트](./chapters/chapter-12-todo-item.md)
+#### [Chapter 12: TodoItem.js - 개별 아이템 컴포넌트](./chapter-12-todo-item.md)
 - 아이템 상태 관리와 업데이트
 - 인라인 편집과 삭제 기능
 - 체크박스와 토글 기능
@@ -108,25 +108,25 @@
 
 ### 🔧 **파트 4: 서비스 레이어와 API (챕터 13-16)**
 
-#### [Chapter 13: todoService/index.js - 서비스 레이어 구조](./chapters/chapter-13-service-structure.md)
+#### [Chapter 13: todoService/index.js - 서비스 레이어 구조](./chapter-13-todo-service.md)
 - 서비스 레이어 패턴과 설계
 - API 통신과 에러 처리
 - 모듈화와 재사용성
 - 타입 안전성과 검증
 
-#### [Chapter 14: CRUD 연산 - Create와 Read](./chapters/chapter-14-crud-create-read.md)
+#### [Chapter 14: CRUD 연산 - Create와 Read](./chapter-14-crud-create-read.md)
 - createTodoItem.js 구현
 - selectTodoList.js와 selectTodoItem.js
 - HTTP 요청과 응답 처리
 - 데이터 변환과 정규화
 
-#### [Chapter 15: CRUD 연산 - Update와 Delete](./chapters/chapter-15-crud-update-delete.md)
+#### [Chapter 15: CRUD 연산 - Update와 Delete](./chapter-15-crud-update-delete.md)
 - updateTodoItem.js 구현
 - deleteTodoItem.js 구현
 - 낙관적 업데이트와 롤백
 - 배치 처리와 성능 최적화
 
-#### [Chapter 16: server.js와 database.json - 백엔드 서버](./chapters/chapter-16-backend-server.md)
+#### [Chapter 16: server.js와 database.json - 백엔드 서버](./chapter-16-server-database.md)
 - JSON Server 설정과 사용법
 - RESTful API 설계 원칙
 - 데이터베이스 스키마와 관계
@@ -136,25 +136,25 @@
 
 ### 🧪 **파트 5: 고급 주제와 배포 (챕터 17-20)**
 
-#### [Chapter 17: 테스팅 - jest.config.json과 테스트 작성](./chapters/chapter-17-testing.md)
+#### [Chapter 17: 테스팅 - jest.config.json과 테스트 작성](./chapter-17-jest-config.md)
 - Jest 설정과 테스트 환경
 - 단위 테스트와 통합 테스트
 - React Testing Library 활용
 - 테스트 커버리지와 CI/CD
 
-#### [Chapter 18: 빌드와 배포 - GitHub Pages](./chapters/chapter-18-github-pages.md)
+#### [Chapter 18: 빌드와 배포 - GitHub Pages](./chapter-18-build-deployment.md)
 - Create React App 빌드 과정
 - GitHub Actions CI/CD 파이프라인
 - 정적 사이트 배포 전략
 - 환경 변수와 배포 최적화
 
-#### [Chapter 19: Vercel 배포와 vercel.json 설정](./chapters/chapter-19-vercel-deployment.md)
+#### [Chapter 19: Vercel 배포와 vercel.json 설정](./chapter-19-vercel-deployment.md)
 - Vercel 플랫폼과 서버리스
 - vercel.json 설정과 라우팅
 - 환경별 배포 전략
 - 모니터링과 성능 분석
 
-#### [Chapter 20: 성능 최적화와 모범 사례](./chapters/chapter-20-optimization.md)
+#### [Chapter 20: 성능 최적화와 모범 사례](./chapter-20-performance-optimization.md)
 - 번들 크기 최적화
 - 코드 분할과 지연 로딩
 - 메모이제이션과 리렌더링 최적화

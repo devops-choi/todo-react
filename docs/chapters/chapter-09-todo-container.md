@@ -1,5 +1,15 @@
 # Chapter 9: TodoContainer.js - 컨테이너 컴포넌트
 
+---
+
+## 📚 네비게이션
+
+- **◀ 이전**: [Chapter 8: src/App.js - 메인 애플리케이션 컴포넌트](./chapter-08-app-js.md)
+- **🏠 목차**: [전체 목차](./README.md)
+- **▶ 다음**: [Chapter 10: TodoInput.js - 입력 컴포넌트](./chapter-10-todo-input.md)
+
+---
+
 ## 📚 학습 목표
 - 컨테이너 컴포넌트 패턴의 이해와 적용
 - Todo 앱의 핵심 비즈니스 로직 구현
@@ -711,3 +721,15 @@ API 호출 실패 시 사용자에게 어떤 피드백을 제공해야 하는지
 5. **컴포넌트 분리로 재사용성과 유지보수성 향상**
 
 다음 챕터에서 사용자 입력을 처리하는 컴포넌트를 학습하겠습니다!
+
+---
+
+## 📚 네비게이션
+
+- **◀ 이전**: [Chapter 8: src/App.js - 메인 애플리케이션 컴포넌트](./chapter-08-app-js.md)
+- **🏠 목차**: [전체 목차](./README.md)
+- **▶ 다음**: [Chapter 10: TodoInput.js - 입력 컴포넌트](./chapter-10-todo-input.md)
+
+---
+
+**🎉 Chapter 9 완료! 수고하셨습니다! 🚀**

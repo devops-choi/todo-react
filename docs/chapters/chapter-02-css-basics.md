@@ -1,5 +1,15 @@
 # Chapter 2: CSS 기초와 스타일링
 
+---
+
+## 📚 네비게이션
+
+- **◀ 이전**: [Chapter 1: HTML 기초와 웹 페이지 구조 이해](./chapter-01-html-basics.md)
+- **🏠 목차**: [전체 목차](./README.md)
+- **▶ 다음**: [Chapter 3: JavaScript 기초와 ES6+ 문법](./chapter-03-javascript-basics.md)
+
+---
+
 ## 📚 학습 목표
 - CSS의 기본 개념과 역할 이해
 - CSS 선택자와 속성 학습
@@ -557,3 +567,15 @@ CSS로 아름다운 디자인을 완성했다면, 이제 JavaScript로 동적인
 5. **반응형 디자인으로 모든 기기에서 최적화**
 
 다음 챕터에서 JavaScript의 핵심 개념들을 학습하겠습니다!
+
+---
+
+## 📚 네비게이션
+
+- **◀ 이전**: [Chapter 1: HTML 기초와 웹 페이지 구조 이해](./chapter-01-html-basics.md)
+- **🏠 목차**: [전체 목차](./README.md)
+- **▶ 다음**: [Chapter 3: JavaScript 기초와 ES6+ 문법](./chapter-03-javascript-basics.md)
+
+---
+
+**🎉 Chapter 2 완료! 수고하셨습니다! 🚀**

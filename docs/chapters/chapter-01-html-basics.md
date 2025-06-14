@@ -575,3 +575,14 @@ CSS로 웹 페이지를 스타일링 했다면, 이제 JavaScript로 동적인 �
 6. **React에서는 CSS 모듈**을 사용하여 컴포넌트 단위로 스타일 적용
 
 다음 챕터에서 JavaScript와 React의 세계로 들어가 보겠습니다!
+
+---
+
+## 📚 네비게이션
+
+- **◀ 이전**: [전체 목차](./README.md)
+- **▶ 다음**: [Chapter 2: CSS 기초와 스타일링](./chapter-02-css-basics.md)
+
+---
+
+**🎉 Chapter 1 완료! 수고하셨습니다! 🚀**

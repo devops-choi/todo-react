@@ -50,6 +50,8 @@ flowchart TB
     
     Frontend --> Testing
     Backend --> Testing
+    Frontend --> Testing
+    Backend --> Testing
 ```
 
 ---

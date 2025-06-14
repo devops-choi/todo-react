@@ -3,27 +3,27 @@
     {
       "id": "8d2f",
       "title": "3",
-      "completed": false
+      "completed": true
     },
     {
       "id": "5ec7",
       "title": "1",
-      "completed": false
+      "completed": true
     },
     {
       "id": "991e",
       "title": "2",
-      "completed": false
+      "completed": true
     },
     {
       "id": "9df8",
       "title": "3",
-      "completed": false
+      "completed": true
     },
     {
       "id": "7c6f",
       "title": "4",
-      "completed": false
+      "completed": true
     }
   ]
 }

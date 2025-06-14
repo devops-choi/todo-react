@@ -1,5 +1,15 @@
 # Chapter 10: TodoInput.js - 입력 컴포넌트
 
+---
+
+## 📚 네비게이션
+
+- **◀ 이전**: [Chapter 9: TodoContainer.js - 컨테이너 컴포넌트](./chapter-09-todo-container.md)
+- **🏠 목차**: [전체 목차](./README.md)
+- **▶ 다음**: [Chapter 11: TodoList.js - 목록 컴포넌트](./chapter-11-todo-list.md)
+
+---
+
 ## 학습 목표
 - React에서 폼(form) 처리 방법 이해
 - 제어 컴포넌트(Controlled Component) 개념 학습
@@ -333,6 +343,18 @@ function TodoInput({ onSubmit }) {
 - key prop의 중요성
 - 조건부 렌더링
 - 빈 리스트 처리
+
+---
+
+## 📚 네비게이션
+
+- **◀ 이전**: [Chapter 9: TodoContainer.js - 컨테이너 컴포넌트](./chapter-09-todo-container.md)
+- **🏠 목차**: [전체 목차](./README.md)
+- **▶ 다음**: [Chapter 11: TodoList.js - 목록 컴포넌트](./chapter-11-todo-list.md)
+
+---
+
+**🎉 Chapter 10 완료! 수고하셨습니다! 🚀**
 
 ---
 
